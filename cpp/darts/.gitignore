@@ -1,0 +1,4 @@
+# Remove Exercism metadata, config from gitignore
+**/*.json
+
+/build
