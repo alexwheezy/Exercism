@@ -10,7 +10,7 @@ pub fn LinkedList(comptime T: type) type {
 
         first: ?*Node = null,
         last: ?*Node = null,
-        len: T = 0,
+        len: usize = 0,
 
         const Self = @This();
 
@@ -63,19 +63,17 @@ pub fn LinkedList(comptime T: type) type {
             var last = self.last;
             while (last) |curr| : (last = curr.prev) {
                 if (curr.data == node.data) {
-                    if (curr.prev) |prev| {
-                        last.?.* = prev.*;
+                    if (curr.prev == null) {
+                        self.first = curr.next;
+                    } else if (curr.next == null) {
+                        self.last = curr.prev;
+                    } else {
+                        curr.*.prev.?.next = curr.*.next;
+                        curr.*.next.?.prev = curr.*.prev;
                     }
                     self.len -= 1;
                     break;
                 }
-            }
-        }
-
-        pub fn print(self: *Self) void {
-            var node = self.last;
-            while (node) |curr| : (node = curr.prev) {
-                std.debug.print("value: {}\n", .{curr.data});
             }
         }
     };
