@@ -6,7 +6,6 @@ pub fn sum(allocator: mem.Allocator, factors: []const u32, limit: u32) !u64 {
 
     var buffer = std.ArrayList(u64).init(allocator);
     defer buffer.deinit();
-
     for (factors) |factor| {
         if (factor < limit and (factor % 3 == 0 or factor % 5 == 0)) {
             try buffer.append(factor);

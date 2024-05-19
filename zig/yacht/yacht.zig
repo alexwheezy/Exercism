@@ -40,7 +40,6 @@ pub fn score(dice: [5]u3, category: Category) u32 {
     const yacht_score = 50;
     const is_all_equals = allEqual(u3, arr[0..], arr[0]);
     const all_sum = sum(&arr);
-
     return switch (category) {
         .ones, .twos, .threes, .fours, .fives, .sixes => |variant| sumEqualValue(&arr, @intFromEnum(variant)),
         .full_house => blk: {

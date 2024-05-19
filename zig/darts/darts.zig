@@ -16,7 +16,6 @@ pub const Coordinate = struct {
     pub fn score(self: Coordinate) usize {
         const dist = @sqrt((self.x * self.x) + (self.y * self.y));
         const circle = Circle{};
-
         if (dist > circle.large) {
             return circle.out_of_bounds;
         } else if (dist > circle.medium) {

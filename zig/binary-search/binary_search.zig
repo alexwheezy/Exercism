@@ -4,7 +4,6 @@ pub fn binarySearch(
     items: []const T,
 ) ?usize {
     if (items.len == 0) return null;
-
     var left: usize = 0;
     var right = items.len;
     while (left < right) {

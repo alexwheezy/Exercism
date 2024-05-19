@@ -40,7 +40,6 @@ pub fn response(s: []const u8) []const u8 {
     const is_alpha_upper = isUpper(s) and isAlphabetic(s);
     const is_whitespace = isWhitespace(s);
     const is_question = isQuestion(s);
-
     if (is_question) {
         if (is_alpha_upper) {
             return "Calm down, I know what I'm doing!";

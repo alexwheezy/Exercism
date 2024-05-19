@@ -12,7 +12,6 @@ pub fn countWords(allocator: mem.Allocator, s: []const u8) !std.StringHashMap(u3
         var word = key;
         const start_quote = ascii.startsWithIgnoreCase(word, "'");
         const end_quote = ascii.endsWithIgnoreCase(word, "'");
-
         if (start_quote and end_quote) {
             if (word.len == 1) continue;
             word = word[1 .. word.len - 1];
@@ -21,7 +20,6 @@ pub fn countWords(allocator: mem.Allocator, s: []const u8) !std.StringHashMap(u3
         } else if (end_quote) {
             word = word[0 .. word.len - 1];
         }
-
         const word_lower = try ascii.allocLowerString(allocator, word);
         if (hash_map.getPtr(word_lower)) |value| {
             value.* += 1;

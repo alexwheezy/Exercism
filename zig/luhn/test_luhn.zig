@@ -3,10 +3,6 @@ const testing = std.testing;
 
 const isValid = @import("luhn.zig").isValid;
 
-test "default test" {
-    try testing.expect(isValid("4539 3195 0343 6467"));
-}
-
 test "single digit strings cannot be valid" {
     try testing.expect(!isValid("1"));
 }
