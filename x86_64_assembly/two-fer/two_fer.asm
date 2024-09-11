@@ -1,9 +1,8 @@
 default rel
-section .data
+section .rodata
     prefix db "One for "
     prefix_len equ $ - prefix
     suffix db ", one for me.", 0
-    suffix_len equ $ - suffix
     default_str db "you"
 
 OFFSET equ 8
